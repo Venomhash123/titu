@@ -640,23 +640,53 @@ async def account_login(bot: Client, m: Message):
             url = links[i][1]
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@","").replace("*","").replace(".","").strip()
             
-            if "cpcdn" in url:
-                if "playlist" in url:
-                    url1 = url.replace("playlist", "360p")
-                else:
-                    list01 = url.split("/")
-                    list01[-1] = "stream_2/stream.m3u8"
-                    url1 = "/".join(list01)
-            elif "videos" in url:
-                list01 = url.replace(".m3u8" , "").split("/")
-                last01 = list01.pop()
-                if len(list01[-1])>8:
-                    last02 = "video/" + last01 + "-49aced368452fa67022235a5c4b7055c-video-fd.m3u8"
-                    list01.append(last02)
-                else:
-                    last02 = "videos/" + last01 + "-33948335.mp4.m3u8"
-                    list01.append(last02)
-                url1 = "/".join(list01)
+            if "jpeg" in url:
+                edit1=url.replace("4b06bf8d61c41f8310af9b2624459378203740932b456b07fcf817b737fbae27","b08bad9ff8d969639b2e43d5769342cc62b510c4345d2f7f153bec53be84fe35").replace(".jpeg","")
+                key = edit1.split("/")[-1]
+                common = edit1 +"/videos" + f"/{key}"
+                u1 = common + "-33948335.mp4.m3u8"
+                u2 = common + "-32240523.mp4.m3u8"
+                u3 = common + "-33948330.mp4.m3u8"
+                u4 = common + "-33948336.mp4.m3u8"
+                u5 = common + "-32240524.mp4.m3u8"
+                u6 = common + "-32240525.mp4.m3u8"
+                u7 = common + "-33948331.mp4.m3u8"
+                u8 = common + "-33948334.mp4.m3u8"
+                if requests.get(u1,verify=False).status_code<400:
+                    url1 = u1
+                elif requests.get(u2,verify=False).status_code<400:
+                    url1 = u2
+                elif requests.get(u3,verify=False).status_code<400:
+                    url1=u3
+                elif requests.get(u4,verify=False).status_code<400:
+                    url1=u4
+                elif requests.get(u5,verify=False).status_code<400:
+                    url1 = u5
+                elif requests.get(u6,verify=False).status_code<400:
+                    url1=u6
+                elif requests.get(u7,verify=False).status_code<400:
+                    url1=u7
+                elif requests.get(u8,verify=False).status_code<400:
+                    url=u8
+                    
+                
+            # if "cpcdn" in url:
+            #     if "playlist" in url:
+            #         url1 = url.replace("playlist", "360p")
+            #     else:
+            #         list01 = url.split("/")
+            #         list01[-1] = "stream_2/stream.m3u8"
+            #         url1 = "/".join(list01)
+            # elif "videos" in url:
+            #     list01 = url.replace(".m3u8" , "").split("/")
+            #     last01 = list01.pop()
+            #     if len(list01[-1])>8:
+            #         last02 = "video/" + last01 + "-49aced368452fa67022235a5c4b7055c-video-fd.m3u8"
+            #         list01.append(last02)
+            #     else:
+            #         last02 = "videos/" + last01 + "-33948335.mp4.m3u8"
+            #         list01.append(last02)
+            #     url1 = "/".join(list01)
                 
 #                 url1 = b
             else:
@@ -714,8 +744,3 @@ async def account_login(bot: Client, m: Message):
         await m.reply_text(e)
     await m.reply_text("Done")     
 bot.run()
-
-
-
-
-
