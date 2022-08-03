@@ -45,7 +45,7 @@ bot = Client(
 #)
 #auth_users = [ int(chat) for chat in os.environ.get("AUTH_USERS").split(",") if chat != '']
 #sudo_users = auth_users
-sudo_groups = [ int(chat) for chat in Sudo-groups.split(",")  if chat != '']
+sudo_groups = [ int(chat) for chat in Sudo_groups.split(",")  if chat != '']
 
 @bot.on_message(filters.command(["start"])&  (filters.chat(sudo_groups)))
 async def account_login(bot: Client, m: Message):
