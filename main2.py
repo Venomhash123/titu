@@ -13,7 +13,7 @@ from pyrogram.types import Message
 from pyrogram import Client, filters
 import tgcrypto
 from p_bar import progress_bar
-from details import api_id, api_hash, bot_token, sudo_groups
+from details import api_id, api_hash, bot_token, Sudo_groups
 from subprocess import getstatusoutput
 import helper
 import logging
@@ -45,7 +45,7 @@ bot = Client(
 #)
 #auth_users = [ int(chat) for chat in os.environ.get("AUTH_USERS").split(",") if chat != '']
 #sudo_users = auth_users
-#sudo_groups = [ int(chat) for chat in os.environ.get("GROUPS").split(",")  if chat != '']
+sudo_groups = [ int(chat) for chat in Sudo-groups.split(",")  if chat != '']
 
 @bot.on_message(filters.command(["start"])&  (filters.chat(sudo_groups)))
 async def account_login(bot: Client, m: Message):
