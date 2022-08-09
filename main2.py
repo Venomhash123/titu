@@ -753,5 +753,5 @@ async def account_login(bot: Client, m: Message):
     except Exception as e:
         await m.reply_text(e)
     await m.reply_text("Done")     
-await send.Message("I m online 🤗😎📢🤑🤘",sudo_groups)
+await bot.send_message("I m online 🤗😎📢🤑🤘",sudo_groups)
 bot.run()
