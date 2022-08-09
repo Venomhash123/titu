@@ -644,14 +644,17 @@ async def account_login(bot: Client, m: Message):
                 edit1=url.replace("4b06bf8d61c41f8310af9b2624459378203740932b456b07fcf817b737fbae27","b08bad9ff8d969639b2e43d5769342cc62b510c4345d2f7f153bec53be84fe35").replace(".jpeg","")
                 key = edit1.split("/")[-1]
                 common = edit1 +"/videos" + f"/{key}"
-                u1 = common + "-33948335.mp4.m3u8"
-                u2 = common + "-32240523.mp4.m3u8"
-                u3 = common + "-33948330.mp4.m3u8"
-                u4 = common + "-33948336.mp4.m3u8"
-                u5 = common + "-32240524.mp4.m3u8"
-                u6 = common + "-32240525.mp4.m3u8"
-                u7 = common + "-33948331.mp4.m3u8"
-                u8 = common + "-33948334.mp4.m3u8"
+                u1 = common + "-32240525.mp4.m3u8"#1280×720
+                u2 = common + "-33948331.mp4.m3u8"#1280×720
+                u3 = common + "-33948334.mp4.m3u8"#1920×1080
+                u4 = common + "-33948336.mp4.m3u8"#960×540
+                u5 = common + "-32240524.mp4.m3u8"#720×406
+                u6 = common + "-32240523.mp4.m3u8"#480×270
+                u7 = common + "-33948330.mp4.m3u8"#480×270
+                u8 = common + "-33948335.mp4.m3u8"#640×360
+                u9 = common+"-32240522.mp4.m3u8"#320×180
+                u10=common+"-33948329.mp4.m3u8"#320×180
+                u11=common+"-33948339.mp4.m3u8"#540p
                 if requests.get(u1,verify=False).status_code<400:
                     url1 = u1
                 elif requests.get(u2,verify=False).status_code<400:
@@ -667,8 +670,15 @@ async def account_login(bot: Client, m: Message):
                 elif requests.get(u7,verify=False).status_code<400:
                     url1=u7
                 elif requests.get(u8,verify=False).status_code<400:
-                    url=u8
-                    
+                    url1=u8
+                elif requests.get(u9,verify=False).status_code<400:
+                    url1=u9
+                elif requests.get(u10,verify=False).status_code<400:
+                    url1=u10
+                elif requests.get(u11,verify=False).status_code<400:
+                    url1=u11
+                else:
+                    url1=url
                 
             # if "cpcdn" in url:
             #     if "playlist" in url:
@@ -743,4 +753,5 @@ async def account_login(bot: Client, m: Message):
     except Exception as e:
         await m.reply_text(e)
     await m.reply_text("Done")     
+await send.Message("I m online 🤗😎📢🤑🤘",sudo_groups)
 bot.run()
